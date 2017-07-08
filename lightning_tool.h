@@ -2,8 +2,11 @@
 #include <Wire.h>
 #include <AS3935.h>
 
-#define IRQ_PIN 2
+#define IRQ_PIN 14 //2
 //#define CS_PIN 10
+
+const int sclPin = D1;
+const int sdaPin = D2;
 
 volatile bool detected = false;
 
@@ -50,7 +53,8 @@ void init_lightning() {
 
 
   //I2C
-  Wire.begin();
+ 
+   Wire.begin(sdaPin, sclPin); // Wire.begin();
   mod1016.init(IRQ_PIN);
 
   //Tune Caps, Set AFE, Set Noise Floor

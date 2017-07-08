@@ -16,6 +16,7 @@
 #include "tools_wifi.h"
 #include "ota_tool.h"
 #include "lightning_tool.h"
+#include "mqtt_tool.h"
 
 
 void setup() {
@@ -23,12 +24,12 @@ void setup() {
   Serial.begin(115200);
 #endif
 
-  wifi_init("D1mini");
+  wifi_init("D1miniLS");
   delay(500);
 
-  init_ota("D1mini");
+  init_ota("D1miniLS");
 
-  pinMode(BUILTIN_LED, OUTPUT);  // initialize onboard LED as output
+//  pinMode(BUILTIN_LED, OUTPUT);  // initialize onboard LED as output
 
   init_lightning();
 }
@@ -39,8 +40,8 @@ void loop() {
 
   check_lightning();
 
-  digitalWrite(BUILTIN_LED, HIGH);  // turn on LED with voltage HIGH
+//  digitalWrite(BUILTIN_LED, HIGH);  // turn on LED with voltage HIGH
   delay(1000);                      // wait one second
-  digitalWrite(BUILTIN_LED, LOW);   // turn off LED with voltage LOW
-  delay(1000);                      // wait one second
+//  digitalWrite(BUILTIN_LED, LOW);   // turn off LED with voltage LOW
+//  delay(1000);                      // wait one second
 }
