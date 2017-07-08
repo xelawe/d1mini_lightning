@@ -12,14 +12,14 @@ volatile bool detected = false;
 
 void printDistance() {
   int distance = mod1016.calculateDistance();
-  
-  if (distance == -1){
+
+  if (distance == -1) {
     DebugPrintln("Lightning out of range");
   }
-  else if (distance == 1){
+  else if (distance == 1) {
     DebugPrintln("Distance not in table");
   }
-  else if (distance == 0){
+  else if (distance == 0) {
     DebugPrintln("Lightning overhead");
   }
   else {
@@ -33,12 +33,15 @@ void translateIRQ(uns8 irq) {
   switch (irq) {
     case 1:
       DebugPrintln("NOISE DETECTED");
+      client.publish(mqtt_pubtopic, "NOISE");
       break;
     case 4:
       DebugPrintln("DISTURBER DETECTED");
+      client.publish(mqtt_pubtopic, "DISTURBER");
       break;
     case 8:
       DebugPrintln("LIGHTNING DETECTED");
+      client.publish(mqtt_pubtopic, "LIGHTNING");
       printDistance();
       break;
   }
@@ -53,8 +56,8 @@ void init_lightning() {
 
 
   //I2C
- 
-   Wire.begin(sdaPin, sclPin); // Wire.begin();
+
+  Wire.begin(sdaPin, sclPin); // Wire.begin();
   mod1016.init(IRQ_PIN);
 
   //Tune Caps, Set AFE, Set Noise Floor

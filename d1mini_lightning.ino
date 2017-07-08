@@ -15,9 +15,13 @@
 
 #include "tools_wifi.h"
 #include "ota_tool.h"
-#include "lightning_tool.h"
 #include "mqtt_tool.h"
+#include "lightning_tool.h"
 
+
+void callback_mqtt(char* topic, byte* payload, unsigned int length) {
+
+}
 
 void setup() {
 #ifdef serdebug
@@ -30,6 +34,8 @@ void setup() {
   init_ota("D1miniLS");
 
 //  pinMode(BUILTIN_LED, OUTPUT);  // initialize onboard LED as output
+
+  init_mqtt(callback_mqtt);
 
   init_lightning();
 }
