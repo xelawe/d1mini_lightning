@@ -1,3 +1,4 @@
+
 /*
    Blink and OTA
    Turns on the onboard LED on for one second, then off for one second, repeatedly.
@@ -14,6 +15,8 @@
 
 #include "tools_wifi.h"
 #include "ota_tool.h"
+#include "lightning_tool.h"
+
 
 void setup() {
 #ifdef serdebug
@@ -26,11 +29,15 @@ void setup() {
   init_ota("D1mini");
 
   pinMode(BUILTIN_LED, OUTPUT);  // initialize onboard LED as output
+
+  init_lightning();
 }
 
 void loop() {
 
   check_ota();
+
+  check_lightning();
 
   digitalWrite(BUILTIN_LED, HIGH);  // turn on LED with voltage HIGH
   delay(1000);                      // wait one second
