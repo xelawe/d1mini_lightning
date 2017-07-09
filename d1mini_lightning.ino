@@ -28,6 +28,8 @@ void setup() {
   Serial.begin(115200);
 #endif
 
+  DebugPrintln("\n" + String(__DATE__) + ", " + String(__TIME__) + " " + String(__FILE__));
+
   wifi_init("D1miniLS");
   delay(500);
 
