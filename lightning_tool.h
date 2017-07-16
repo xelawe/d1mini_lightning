@@ -63,8 +63,9 @@ void init_lightning() {
   //Tune Caps, Set AFE, Set Noise Floor
   autoTuneCaps(IRQ_PIN);
 
-  //mod1016.setTuneCaps(6);
-  mod1016.setOutdoors();
+  mod1016.setTuneCaps(6);
+  //mod1016.setOutdoors();
+  mod1016.setIndoors();
   mod1016.setNoiseFloor(5);
 
   DebugPrintln("TUNE\tIN/OUT\tNOISEFLOOR");
