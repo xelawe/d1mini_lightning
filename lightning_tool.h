@@ -1,7 +1,6 @@
 
 #include <Wire.h>
 #include <AS3935.h>
-#include "cy_weather.h"
 
 #define IRQ_PIN 14 //2
 //#define CS_PIN 10
@@ -27,8 +26,9 @@ void printDistance() {
   else {
     DebugPrint("Lightning ~");
     DebugPrint(distance);
-    send_val(21, distance);
     DebugPrintln("km away\n");
+    
+    send_val(21, distance);
   }
 }
 
