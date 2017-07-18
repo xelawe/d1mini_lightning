@@ -14,7 +14,7 @@
 #endif
 
 #include "cy_wifi.h"
-#include "ota_tool.h"
+#include "cy_ota.h"
 #include "mqtt_tool.h"
 #include "cy_weather.h"
 #include "lightning_tool.h"
