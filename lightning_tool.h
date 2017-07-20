@@ -68,8 +68,8 @@ void init_lightning() {
   delay(500);
   mod1016.setTuneCaps(6);
   mod1016.calibrateRCO();
-  //mod1016.setOutdoors();
-  mod1016.setIndoors();
+  mod1016.setOutdoors();
+  //mod1016.setIndoors();
   mod1016.setNoiseFloor(5);
 
   DebugPrintln("TUNE\tIN/OUT\tNOISEFLOOR");
