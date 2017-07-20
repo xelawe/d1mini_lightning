@@ -64,13 +64,13 @@ void init_lightning() {
   mod1016.init(IRQ_PIN);
 
   //Tune Caps, Set AFE, Set Noise Floor
-  //autoTuneCaps(IRQ_PIN);
-  delay(500);
-  mod1016.setTuneCaps(6);
-  mod1016.calibrateRCO();
+  autoTuneCaps(IRQ_PIN);
+  //delay(500);
+  //mod1016.setTuneCaps(6);
+  //mod1016.calibrateRCO();
   mod1016.setOutdoors();
   //mod1016.setIndoors();
-  mod1016.setNoiseFloor(5);
+  //mod1016.setNoiseFloor(5);
 
   DebugPrintln("TUNE\tIN/OUT\tNOISEFLOOR");
   DebugPrint(mod1016.getTuneCaps(), HEX);
